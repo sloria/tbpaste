@@ -49,6 +49,10 @@ class TestTbPaste(unittest.TestCase):
         result = run_cmd("tbpaste lang --to es")
         assert_in("Este es un gran coche", result)
 
+    def test_tags(self):
+        result = run_cmd("tbpaste tag")
+        assert_in("This [DT] is [VBZ] a [DT] great [JJ]", result)
+
 def run_cmd(cmd):
     return check_output(cmd, shell=True).decode('utf-8')
 

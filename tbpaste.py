@@ -8,6 +8,7 @@ Usage:
     tbpaste chunks [options]
     tbpaste lang
     tbpaste lang [--from <lang1> --to <lang2>]
+    tbpaste tag
 
 Options:
     -h --help               Show this screen.
@@ -17,14 +18,14 @@ Options:
     -t --to <lang2>         The language to translate to
 '''
 
-from __future__ import unicode_literals
+from __future__ import unicode_literals, print_function
 import sys
 import xerox
 from text.blob import TextBlob as tb
 from docopt import docopt
 from clint.textui import puts, colored
 
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 __author__ = 'Steven Loria'
 __license__ = "MIT"
 
@@ -46,7 +47,6 @@ def main():
     '''Main entry point for the tbpaste CLI.'''
     args = docopt(__doc__, version=__version__)
     command = args["<command>"]
-    # Escaping unicode for now until clint has better unicode support
     text = unicode(xerox.paste())
     blob = tb(text)
     tokenize = 't' in args['--sentences'].lower()
@@ -54,6 +54,8 @@ def main():
         return lang(blob, from_lang=args['--from'], to=args['--to'])
     elif command == 'chunks':
         return chunks(blob, tokenize)
+    elif command == 'tag':
+        return tag(blob)
     else:
         return sentiment(blob, tokenize)
     sys.exit(0)
@@ -113,6 +115,12 @@ def lang(blob, from_lang=None, to=None):
     else:
         print(blob.detect_language())
     return None
+
+def tag(blob):
+    '''Output POS tags.'''
+    for word, tag in blob.tags:
+        print(word +  " " + colored.yellow("[{tag}] ".format(tag=tag)), end="")
+    print()
 
 def numformat(num):
     return unicode(str((round(num, 2))))

@@ -30,6 +30,9 @@ More magic
 ``tbpaste lang --from en --to fr``
     Translate between languages. If ``--from`` is omitted, tbpaste will try to detect the source language. `Language code reference`_.
 
+``tbpaste tag``
+    Output part-of-speech tags for each word in the copied text.
+
 .. _`Language code reference`: https://developers.google.com/translate/v2/using_rest#language-params
 
 Features
@@ -38,6 +41,7 @@ Features
 * Sentiment analysis
 * Noun phrase extraction
 * Translation
+* Part-of-speech tagging
 * Colored output
 * Cross-platform
 

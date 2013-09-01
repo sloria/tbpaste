@@ -45,7 +45,7 @@ def read(fname):
 
 setup(
     name='tbpaste',
-    version="0.1.0",
+    version="0.2.0",
     description='Sentiment analysis, as easy as copy-and-paste',
     long_description=read("README.rst"),
     author='Steven Loria',
