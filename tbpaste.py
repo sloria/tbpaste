@@ -21,7 +21,7 @@ Options:
 from __future__ import unicode_literals, print_function
 import sys
 import xerox
-from text.blob import TextBlob as tb
+from textblob import TextBlob as tb
 from docopt import docopt
 from clint.textui import puts, colored
 

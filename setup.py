@@ -55,7 +55,7 @@ setup(
     install_requires=[
         'docopt',
         'clint',
-        'textblob',
+        'textblob>=0.8.2',
         'xerox'
     ],
     license="MIT",

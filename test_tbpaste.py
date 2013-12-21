@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import unittest
 from nose.tools import *  # PEP8 asserts
 import xerox
-from text.blob import TextBlob
+from textblob import TextBlob
 from subprocess import check_output
 
 class TestTbPaste(unittest.TestCase):
