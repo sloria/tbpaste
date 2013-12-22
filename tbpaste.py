@@ -25,7 +25,7 @@ from textblob import TextBlob as tb
 from docopt import docopt
 from clint.textui import puts, colored
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 __author__ = 'Steven Loria'
 __license__ = "MIT"
 
